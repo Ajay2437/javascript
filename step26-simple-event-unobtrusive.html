@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		function callFunIe(){
+			var event = window.event;
+			 alert("you clicked "+event.srcElement.innerHTML);
+		};
+		function callFun(event){
+			 // alert("you clicked "+event.target.innerHTML);
+			console.log(event.type)
+		};
+		window.onload = function(){
+			var btns = document.getElementsByTagName("button");
+			for(var i = 0; i < btns.length; i++){
+				// btns[i].onclick = callFun
+				if(document.addEventListener){
+					btns[i].addEventListener("mouseover", callFun);
+					btns[i].addEventListener("mousedown", callFun);
+					btns[i].addEventListener("mouseup", callFun);
+					btns[i].addEventListener("click", callFun);
+					btns[i].addEventListener("mouseout", callFun);
+				}else{
+					btns[i].attachEvent("onclick", callFunIe);
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<button> Button 1 </button>
+	<button> Button 2 </button>
+	<button> Button 3 </button>
+	<button> Button 4 </button>
+	<button> Button 5 </button>
+	<button> Button 6 </button>
+</body>
+</html>

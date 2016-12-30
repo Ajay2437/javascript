@@ -32,21 +32,33 @@
 		}
 	</style>
 	<script>
-		function callfun(elm){
-			// alert(elm.innerHTML);
-			document.querySelector(".box").removeChild(elm);
-		};
+		function clickHandler(event){
+			// alert("you clicked a box");
+			/*
+			event.target
+			event.type
+			event.currentTarget
+			event.eventPhase
+			 */
+			if(event.target.getAttribute("class") != "box"){
+				document.querySelector(".box").removeChild(event.target);
+			}else{
+				alert("you clicked on the box")
+			}
+		}
 		var count = 0;
 		document
 		.addEventListener("DOMContentLoaded",function(){
 			document.querySelectorAll("button")[0].addEventListener("click", addHandler)
 			document.querySelectorAll("button")[1].addEventListener("click", removeFirstHandler)
 			document.querySelectorAll("button")[2].addEventListener("click", removeLastHandler)
+			document.querySelector(".box").addEventListener("click", clickHandler)
 		});
 		function addHandler(){
 			var elm = document.createElement("div");
 				elm.textContent = count++;
-				elm.setAttribute("onclick", "callfun(this)")
+				// elm.setAttribute("onclick", "callfun(this)");
+				// elm.addEventListener("click", clickHandler );
 			document.querySelector(".box").appendChild(elm);
 		};
 		function removeFirstHandler(){
