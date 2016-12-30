@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Module Mutation</title>
+	<script>
+		
+		var cityGen = (function(){
+			
+			return {
+				cty : function(){
+					return "Nagpur"
+				}
+			}
+		}());
+		
+		var mod = (function(gen){
+			var fname = "Batman";
+			var lname = "Wayne";
+			var city = gen.cty();
+			return {
+				fn : fname,
+				ln : lname,
+				city : city
+			}
+		}(cityGen));
+		
+		
+		
+		//---------------------
+		
+		window.onload = function(){
+			document.body.innerHTML += "<h1>"+mod.city+"</h1>"
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
