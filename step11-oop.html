@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Mutation</title>
+    <script>
+        // Creation Pattern
+        /*
+        var obj = {
+            fname : "Bruce",
+            lname : "Wayne"
+        };
+        var hero = Object.create(obj);
+        console.log(hero.fname);
+        hero.fname = "Joker";
+        console.log(obj.fname); // 
+        console.log(hero.fname);
+        */
+        // value, writable, enumerable, configurable
+        var obj = {};
+        Object.defineProperty(obj,"fname",{
+            value : "Bruce",
+            writable : false,
+            enumerable : true,
+            configurable : true
+        });
+        Object.defineProperty(obj,"power",{
+            value : 7,
+            writable : true
+        });
+        Object.defineProperty(obj,"accesspower",{
+          get: function(){
+            return this.power
+          },
+          set:function(value){
+            this.power = value
+          }
+        });
+        obj.fname = "Joker";
+        console.log("line 27", obj.fname);
+        /*
+        */
+        Object.defineProperty(obj,"fname",{
+            value : "Peter",
+            writable : true,
+            enumerable : true,
+            configurable : false
+        });
+        obj.fname = "Joker";
+       console.log("line 37",obj.fname);// Bruce
+
+       console.log(obj.power)// 7
+       console.log(obj.accesspower)// 7
+       obj.accesspower = 8;
+       console.log(obj.accesspower)// 8
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

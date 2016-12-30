@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+    <script>
+    /*
+        var obj1 = new Object({
+            title : "Batman",
+            "first name" : "Bruce",
+            class : "comic hero"
+        });
+        var f = "first";
+        var n = "name";
+        console.log(obj1.title);
+        // console.log(obj1["first name"]);
+        console.log(obj1[f+" "+n]);
+        console.log(obj1.class);
+        for(prop in obj1){
+            console.log(prop, obj1[prop])
+        };
+    */
+        var obj2 = {
+            title : "Spiderman",
+            fname : "Peter",
+            lname : "Parker",
+            fullname : function(cty){
+                return this.fname+" "+this.lname+" is from "+cty
+            }
+        };
+       var fn = obj2.fullname;
+       console.log(fn.call(obj2,"New York"))
+        var obj3 = Object.create(null);
+        obj2.title = "Superman";
+        // console.log(obj2.title);
+        // console.log(obj1, obj2, obj3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

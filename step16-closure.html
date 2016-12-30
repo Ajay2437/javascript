@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Closures</title>
+	<script>
+	/*
+		var myfun = function(hero){
+			var myval = "Secret";
+			return function(){
+				return myval
+			}
+		};
+		var mf = myfun("Dead pool");
+		console.log(mf())
+	 */
+	
+	var displayMessage = function(count){
+		return function(message){
+			var content = ""
+			for(var i = 0; i < count; i++){
+				content+=message+"<hr/>"
+			}
+			return content;
+		}
+	};
+	var dm = displayMessage(10);
+	
+	window.onload = function(){
+		document.body.innerHTML += dm("Welcome to your life");
+		document.body.innerHTML += dm("There's no turning back");
+		
+	}
+	
+	</script>
+</head>
+<body>
+</body>
+</html>

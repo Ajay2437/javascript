@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       .hero{
+           width: 50px;
+           height: 50px;
+           float: left;
+           margin: 5px;
+           color: white;
+           font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+           text-align: center;
+           font-weight: bold;
+           font-size: 20px;
+           line-height: 50px;
+           vertical-align: middle;
+       }
+    </style>
+    <script>
+     var count = 1;
+     var box = null;
+     var si = null;
+    document.addEventListener("DOMContentLoaded", function(){
+       //  console.log("DOM Content Loaded happened");
+       // document.getElementsByClassName("box")[1].innerHTML = " I have changed"
+       // document.getElementsByClassName("box")[1].innerHTML += "<div class='hero'></div>"
+      box= document.getElementsByClassName("box")[0];
+      si = setInterval(externalfun,10)
+    });
+    function externalfun(){
+        // for(var i = 0; i < 100; i++){
+            var r = Math.round( Math.random()*255);
+            var g = Math.round( Math.random()*255);
+            var b = Math.round( Math.random()*255);
+            // var a = Math.random();
+           box.innerHTML += "<div style='background-color:rgba("+r+","+g+","+b+",1)' class='hero'>"+count+"</div>";
+           count++
+       // }
+       if( count >= 100){
+           clearInterval(si);
+       }
+    }
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

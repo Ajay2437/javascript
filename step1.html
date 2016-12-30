@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--script>
+    /* 
+        var message = "Hello World";
+        // alert(message);
+        console.log(message);
+        console.error(message);
+        console.warn(message);
+        //============================
+     var message = "Hello World 1";
+     var Message = "Hello World 2";
+
+     console.log(message);
+     console.log(Message);
+    */
+
+    // i am a single line comment
+        
+     // alert("hello there")
+    </script-->
+<script>
+
+function callfun1(){
+        alert("you clicked the first li first fun")
+};
+/*
+function callfun2(){
+        alert("you clicked the first li second fun")
+}
+*/
+
+function myfun(){
+    // alert("hello from myfun");
+   document.getElementById("firstitem").addEventListener("click", callfun1);
+ //  document.getElementById("firstitem").addEventListener("click", callfun2);
+
+   document.getElementById("lastitem").addEventListener("click", function(){
+        document.getElementById("firstitem").removeEventListener("click", callfun1);
+   });
+   document.getElementById("fourthitem").addEventListener("click", function(){
+        document.getElementById("firstitem").addEventListener("click", callfun1);
+   });
+}
+// window.onload = myfun;
+window.addEventListener("load",myfun);
+// window.removeEventListener("load",myfun);
+</script>
+</head>
+<!--body onload="myfun()"-->
+<body>
+    <ul>
+        <li id="firstitem">List Item</li>
+        <li>List Item</li>
+        <li>List Item</li>
+        <li id="fourthitem">List Item</li>
+        <li id="lastitem">List Item</li>
+    </ul>
+    <!--script src="script.js"></script-->
+
+</body>
+</html>

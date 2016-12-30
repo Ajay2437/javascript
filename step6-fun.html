@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function myfun(){
+           // console.log(arguments.length);
+            for(var i = 0; i < arguments.length; i++){
+                console.log(arguments[i])
+            }
+          //  console.log(arguments[0],arguments[1]);
+            /*
+            arguments
+            caller
+            callee
+            */
+            console.log(myfun.caller.name)
+        };
+       // myfun("hello from ");
+       // myfun("hello from ","nagpur");
+       // myfun("hello from ","nagpur","Bangalore");
+       // myfun("hello from ","nagpur","Gotham","Metropolis","New York");
+       // console.log(myfun.name);
+
+       function fun1(){
+            myfun("hello from ");
+       };
+       function fun2(){
+            myfun("hello from ","nagpur");
+       };
+       function fun3(){
+            myfun("hello from ","nagpur","Bangalore");
+       };
+
+       if(true){
+           fun3();
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

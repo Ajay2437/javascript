@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		// prototype based inheritance
+		var Hero = function(fn,ln){
+			this.fname = fn;
+			this.lname = ln;
+		};
+		Hero.prototype.fullname = function(){
+				return this.fname+" "+this.lname;
+		};
+		Hero.prototype.getCity = function(city){
+				return this.fname+" "+this.lname+" is from "+city;
+		};
+		var hero1 = new Hero("Bruce", "Wayne");
+			
+		// console.log(hero1.fullname === hero2.fullname);
+		
+		console.log(hero1.fullname());
+		console.log(hero1.getCity("Gotham"));
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

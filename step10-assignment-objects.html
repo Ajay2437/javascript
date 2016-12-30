@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+    <script>
+    window.name = "Window"
+    var obj = {
+        name : "Object",
+
+        firstFun : function(){
+           this.name = "parent scope";
+            var nestedFun = function(){
+                this.name = "Local";
+                console.log(this.name);// local first then window
+            }
+            nestedFun()
+            return this.name
+        }
+    };
+    console.log(obj.firstFun());
+
+
+    /*
+    */
+
+
+
+ var cart = {
+        sellingPrice : function(){
+            return 100
+        },
+        totalPrice : function(){
+           //  var self = this;
+            var serviceTax = function(scope){
+               //  return cart.sellingPrice() * 0.2
+               //  return self.sellingPrice() * 0.2
+               // return scope.sellingPrice() * 0.2
+               return this.sellingPrice() * 0.2
+            }
+            // return this.sellingPrice()+serviceTax();
+            // return this.sellingPrice()+ serviceTax.call(this);
+            // return this.sellingPrice()+ serviceTax.apply(this);
+               return this.sellingPrice()+ serviceTax.bind(this)();
+            // return this.sellingPrice()+ serviceTax(this);
+        }
+    };
+
+    console.log(cart.totalPrice())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

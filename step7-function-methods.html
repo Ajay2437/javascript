@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var name = "Rajani";
+
+        var hero1 = {
+            name : "Superman",
+            sayname : function(msg){
+                console.log(msg+" "+this.name);
+            }
+        }
+        var hero2 = {
+            name : "Spiderman"
+        }
+       
+        // hero1.sayname.call(window, "hello");
+        // hero1.sayname.call(hero2, "hello");
+        // hero1.sayname.apply(hero2,["hello"]);
+        // hero1.sayname.bind(hero2)("ola");
+        var newfun = hero1.sayname.bind(hero2);
+        
+        newfun("bona tarda");
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

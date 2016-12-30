@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object Mutation</title>
+    <script>
+    // inheritance from creation pattern
+       var obj = {};
+       Object.defineProperties(obj,{
+           power: { value : 7,  writable : true  },
+           fname : { value : "Bruce", enumerable : true  },
+           lname : { value : "Wayne",  enumerable : true },
+           accesspower : {
+               get : function(){
+                   return this.power
+               },
+               set : function(value){
+                   this.power = value
+               }
+           },
+           getFullname : {
+               value : function(){
+                   return this.fname +" "+this.lname
+               }
+           }
+       });
+       console.log(obj.getFullname());
+      for(prop in obj){
+          console.log(prop)
+      }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

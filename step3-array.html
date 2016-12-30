@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <script>
+      /*
+        var arr = ["batman","superman","ironman"];
+        var str = arr.join();
+        // console.log(str.length);
+        console.log(str);
+            str = str.replace("b","f");
+        console.log(str);
+    */
+    window.onload = function init(){
+        document.getElementById("btn").addEventListener("click", clickHandler)
+    };
+    function clickHandler(){
+        var inputvalue = document.getElementById("hero").value;
+        // console.log(typeof inputvalue); // string
+        console.log(inputvalue);
+       // var arr = inputvalue.split("");
+        var arr = inputvalue.split("");
+        console.log(arr);
+            arr.reverse();
+        console.log(arr);
+        // var outputvalue = arr.join("");
+        document.getElementById("hero").value = arr.join("");
+        // console.log(outputvalue);
+    };
+    </script>
+</head>
+<body>
+    <input id="hero" type="text"/>
+    <button id="btn">Click Me</button>
+   
+</body>
+</html>

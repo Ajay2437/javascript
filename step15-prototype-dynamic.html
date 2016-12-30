@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<style>
+		.box{
+			border: 2px solid gray;
+			height: 300px;
+			overflow: auto;
+		}
+		.box div{
+			width: 50px;
+			height: 50px;
+			background-color: orange;
+			margin: 5px;
+			float: left
+		}
+	</style>
+	<title>Dynamic Prototype</title>
+	<script>
+	Function.prototype.addFun = function(funName, fun){
+		// return "Hello there";
+		this.prototype[funName] = fun;
+	};
+	var Boxer = function(){};
+		Boxer.addFun("add", function(elm, target){
+			elm.addEventListener("click", function(){
+				document.querySelector(target).innerHTML+= "<div></div>"
+			})
+		});
+		Boxer.addFun("remove", function(elm, target ){
+			elm.addEventListener("click", function(){
+			var targetElm = document.querySelector(target);
+			var childToRemove = targetElm.firstChild;
+				if(childToRemove){
+					targetElm.removeChild(childToRemove);
+				}else{
+					alert("nothing to remove")
+				}
+			});
+		});
+		var box = new Boxer();
+		// console.log(Boxer.addFun());
+		window.onload = function(){
+			box.add(document.querySelector("#addBox"), ".box");
+			box.remove(document.querySelector("#removeBox"), ".box");
+		}
+	</script>
+</head>
+<body>
+	<button id="addBox">Add Box</button>
+	<button id="removeBox">Remove Box</button>
+	<div class="box"></div>
+</body>
+</html>
